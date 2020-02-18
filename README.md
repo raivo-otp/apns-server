@@ -6,7 +6,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/raivo-otp/apns-server/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=Source&secondText=Licensed" /></a>
-    <a href="https://itunes.apple.com/"><img src="https://raw.finnwea.com/shield/?firstText=Platform&secondText=MacOS%20(10.15%20or%20higher)" /></a>
+    <a href="https://itunes.apple.com/"><img src="https://raw.finnwea.com/shield/?firstText=Platform&secondText=PHP" /></a>
     <a href="https://github.com/raivo-otp/apns-server/releases"><img src="https://raw.finnwea.com/shield/?typeKey=SemverVersion&typeValue0=raivo-otp&typeValue1=apns-server&typeValue2=master&typeValue4=Release&cache=3"></a>
     <br/>
     <b>An Apple Push Notification Service (APNS) that proxies tokens from Raivo for MacOS to Raivo for iOS</b>
