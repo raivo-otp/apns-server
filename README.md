@@ -1,3 +1,6 @@
+<p align="center" style="color: red"><b>Raivo APNS is currently under development. Raivo APNS is not ready for production.</b></p>
+<hr><br>
+
 <p align="center">
     <img src="https://raw.githubusercontent.com/raivo-otp/ios-application/master/Assets/app-icon.png" width="200"/>
 </p>
@@ -6,7 +9,7 @@
     <a href="https://itunes.apple.com/"><img src="https://raw.finnwea.com/shield/?firstText=Platform&secondText=MacOS%20(10.15%20or%20higher)" /></a>
     <a href="https://github.com/raivo-otp/apns-server/releases"><img src="https://raw.finnwea.com/shield/?typeKey=SemverVersion&typeValue0=raivo-otp&typeValue1=apns-server&typeValue2=master&typeValue4=Release&cache=3"></a>
     <br/>
-    <b>A MacOS TabBar (StatusBar) application that securely receives one-time passwords that you tapped in Raivo for iOS</b>
+    <b>An Apple Push Notification Service (APNS) that proxies tokens from Raivo for MacOS to Raivo for iOS</b>
     <br/>
     <sup>Built by <a href="https://www.linkedin.com/in/tijme/">Tijme Gommers</a> – Buy me a coffee via <a href="https://www.paypal.me/tijmegommers">PayPal</a></sup>
     <br/>
@@ -15,8 +18,6 @@
 ## Features
 
 * ToDo
-* It's fast (native, built in Swift 5)
-* It's secure (see the [security policy](https://github.com/raivo-otp/apns-server/blob/master/SECURITY.md) for more information)
 * It's open-source (check the [contribution policy](https://github.com/raivo-otp/apns-server/blob/master/CONTRIBUTING.md))
 
 ## Issues
