@@ -1,6 +1,3 @@
-<p align="center" style="color: red"><b>Raivo APNS is currently under development. Raivo APNS is not ready for production.</b></p>
-<hr><br>
-
 <p align="center">
     <img src="https://raw.githubusercontent.com/raivo-otp/ios-application/master/Assets/app-icon.png" width="200"/>
 </p>
@@ -17,7 +14,7 @@
 
 ## Features
 
-* ToDo
+* Using Apple Push Notifications latest authentication protocol and HTTP2.
 * It's open-source (check the [contribution policy](https://github.com/raivo-otp/apns-server/blob/master/CONTRIBUTING.md))
 
 ## Issues
