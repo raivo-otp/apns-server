@@ -1,0 +1,7 @@
+; APNS configuration file
+; Comments start with ';', as in php.ini
+
+[authentication]
+key = BASE64_ENCODED_KEY
+key_id = AAAAAA
+team_id = BBBBB

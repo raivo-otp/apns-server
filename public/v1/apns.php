@@ -7,22 +7,6 @@
      *      2. iPhone: Sends MacOS receiver a type 1 (copy to clipboard) notification containing a password, encrypted with the encryption key
      */
 
-    // Define settings
-    define('APNS_PRODUCTION', false);
-    define('APNS_DEVELOPMENT', !APNS_PRODUCTION);
-    define('APNS_AUTHKEYPATH', realpath(dirname(__FILE__) . '/../../apns_key.p8'));
-    define('APNS_AUTHKEY', openssl_pkey_get_private('file://' . APNS_AUTHKEYPATH));
-    define('APNS_KEYID', '');
-    define('APNS_TEAMID', '');
-    define('APNS_BUNDLEID', 'me.tij.Raivo-MacOS');
-    define('APNS_URI', APNS_PRODUCTION ? 'https://api.push.apple.com' : 'https://api.development.push.apple.com');
-
-    // Show PHP errors in development runs
-    if (APNS_DEVELOPMENT) {
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
-    }
-
     // All output data should be JSON
     header('Content-Type: application/json');
 
@@ -32,6 +16,28 @@
             'status' => $success ? 'success' : 'error',
             'message' => $message
         )));
+    }
+
+    // Read INI configuration
+    $ini = parse_ini_file(realpath(dirname(__FILE__) . '/../../apns_config.ini'));
+
+    if ($ini === false) {
+        respondWith('Could not read configuration file.', false);
+    }
+
+    // Define settings
+    define('APNS_PRODUCTION', false);
+    define('APNS_DEVELOPMENT', !APNS_PRODUCTION);
+    define('APNS_TEAMID', $ini['team_id']);
+    define('APNS_KEYID', $ini['key_id']);
+    define('APNS_AUTHKEY', openssl_pkey_get_private(base64_decode($ini['key'])));
+    define('APNS_BUNDLEID', 'me.tij.Raivo-MacOS');
+    define('APNS_URI', APNS_PRODUCTION ? 'https://api.push.apple.com' : 'https://api.development.push.apple.com');
+
+    // Show PHP errors in development runs
+    if (APNS_DEVELOPMENT) {
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
     }
 
     // Helper function to retrieve user input (string)

@@ -3,6 +3,7 @@
 *.p12
 *.cer
 *.p8
+*.ini
 
 ##### Windows
 # Windows thumbnail cache files
