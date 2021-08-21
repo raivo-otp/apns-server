@@ -19,18 +19,18 @@
     }
 
     // Read INI configuration
-    $ini = parse_ini_file(realpath(dirname(__FILE__) . '/../../apns_config.ini'));
+    $ini = parse_ini_file(realpath(dirname(__FILE__) . '/../../apns_config.ini'), true, INI_SCANNER_TYPED);
 
     if ($ini === false) {
         respondWith('Could not read configuration file.', false);
     }
 
     // Define settings
-    define('APNS_PRODUCTION', false);
+    define('APNS_PRODUCTION', $ini['server']['production']);
     define('APNS_DEVELOPMENT', !APNS_PRODUCTION);
-    define('APNS_TEAMID', $ini['team_id']);
-    define('APNS_KEYID', $ini['key_id']);
-    define('APNS_AUTHKEY', openssl_pkey_get_private(base64_decode($ini['key'])));
+    define('APNS_TEAMID', $ini['authentication']['team_id']);
+    define('APNS_KEYID', $ini['authentication']['key_id']);
+    define('APNS_AUTHKEY', openssl_pkey_get_private(base64_decode($ini['authentication']['key'])));
     define('APNS_BUNDLEID', 'me.tij.Raivo-MacOS');
     define('APNS_URI', APNS_PRODUCTION ? 'https://api.push.apple.com' : 'https://api.development.push.apple.com');
 
