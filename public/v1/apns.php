@@ -41,37 +41,18 @@
     }
 
     // Helper function to retrieve user input (string)
-    function getUserInputString(string $key): ?string {
-        if (isset($_POST[$key]) && is_string($_POST[$key])) {
-            return $_POST[$key];
+    function getUserInputString(array $values, string $key): ?string {
+        if (isset($values[$key]) && is_string($values[$key])) {
+            return $values[$key];
         }
 
         return null;
     }
 
     // Helper function to retrieve user input (int)
-    function getUserInputInt(string $key): ?int {
-        if (isset($_POST[$key]) && is_numeric($_POST[$key])) {
-            return $_POST[$key];
-        }
-
-        return null;
-    }
-
-    // Helper function to retrieve user input (array of strings)
-    function getUserInputStringArray(string $key, ?int $requiredStringLength = null): ?array {
-        if (isset($_POST[$key]) && is_array($_POST[$key])) {
-            foreach($_POST[$key] as $value) {
-                if (!is_string($value)) {
-                    return null;
-                }
-
-                if (!is_null($requiredStringLength) && strlen($value) != $requiredStringLength) {
-                    return null;
-                }
-            }
-
-            return $_POST[$key];
+    function getUserInputInt(array $values, string $key): ?int {
+        if (isset($values[$key]) && is_numeric($values[$key])) {
+            return $values[$key];
         }
 
         return null;
@@ -87,19 +68,8 @@
         respondWith('Fatal misconfiguration. Could not find the authentication key on the server.');
     }
 
-    // Retrieve all user input
-    $deviceTokens = getUserInputStringArray('deviceTokens', 64);
-    $notificationType = getUserInputInt('notificationType');
-    $notificationToken = getUserInputString('notificationToken');
-    $notificationIssuer = getUserInputString('notificationIssuer');
-    $notificationAccount = getUserInputString('notificationAccount');
-
     // Validate device tokens
-    if (empty($deviceTokens)) {
-        respondWith('Incorrect device token array.', false);
-    }
-
-    if (count($deviceTokens) > 10) {
+    if (count($_POST) > 10) {
         respondWith('Maximum amount of device tokens reached.', false);
     }
 
@@ -109,21 +79,32 @@
         'kid' => APNS_KEYID
     ]);
 
-    $claims = base64([
-        'iss' => APNS_TEAMID,
-        'iat' => time()
-    ]);
-
-    // Sign JWT header & claims
-    $signature = '';
-    openssl_sign($header . '.' . $claims, $signature, APNS_AUTHKEY, 'sha256');
-    $jwt = $header . '.' . $claims . '.' . base64_encode($signature);
+    // Keep track of successful push notifications
+    $successful = 0;
 
     // Build CURL handle/request
     $handle = curl_init();
 
     // Send push notifications
-    foreach($deviceTokens as $deviceToken) {
+    foreach($_POST as $deviceToken => $values) {
+
+        // Retrieve all user input
+        $notificationType = getUserInputInt($values, 'notificationType');
+        $notificationToken = getUserInputString($values, 'notificationToken');
+        $notificationIssuer = getUserInputString($values, 'notificationIssuer');
+        $notificationAccount = getUserInputString($values, 'notificationAccount');
+
+        $claims = base64([
+            'iss' => APNS_TEAMID,
+            'iat' => time()
+        ]);
+
+        // Sign JWT header & claims
+        $signature = '';
+        openssl_sign($header . '.' . $claims, $signature, APNS_AUTHKEY, 'sha256');
+        $jwt = $header . '.' . $claims . '.' . base64_encode($signature);
+
+
         curl_setopt_array($handle, [
             CURLOPT_URL => APNS_URI. '/3/device/' . $deviceToken,
             CURLOPT_PORT => 443,
@@ -159,10 +140,12 @@
             respondWith('Stopped sending push notifications as APS responded with an error: ' . curl_error($handle), false);
             break;
         }
+
+        $successful ++;
     }
 
     // Close handle
     curl_close($handle);
 
     // Exit with a success message
-    respondWith('Token delivered at ' . count($deviceTokens) . ' device(s).');
+    respondWith('Token delivered at ' . $successful . ' device(s).');
