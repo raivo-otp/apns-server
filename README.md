@@ -35,6 +35,6 @@ Run a local PHP development server with the `public` folder as root.
 
 Raivo does not collect personally identifiable information in any way. Please refer to the [privacy policy](https://github.com/raivo-otp/apns-server/blob/master/PRIVACY.md) for information.
 
-## License
+## License & Copyright
 
-Copyright (c) 2019 Tijme Gommers. All rights reserved. View [LICENSE.md](https://github.com/raivo-otp/apns-server/blob/master/LICENSE.md) for the full license.
+Copyright ® 2022 Tijme Gommers. All rights reserved. View [copyright-notice-and-license.md](https://github.com/raivo-otp/apns-server/blob/master/copyright-notice-and-license.md) for the full version of the license and copryight notice.
