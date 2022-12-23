@@ -32,7 +32,7 @@
     define('APNS_KEYID', $ini['authentication']['key_id']);
     define('APNS_AUTHKEY', openssl_pkey_get_private(base64_decode($ini['authentication']['key'])));
     define('APNS_BUNDLEID', 'me.tij.Raivo-MacOS');
-    define('APNS_URI', APNS_PRODUCTION ? 'https://api.push.apple.com' : 'https://api.development.push.apple.com');
+    define('APNS_URI', APNS_PRODUCTION ? 'https://api.push.apple.com' : 'https://api.sandbox.push.apple.com');
 
     // Show PHP errors in development runs
     if (APNS_DEVELOPMENT) {
