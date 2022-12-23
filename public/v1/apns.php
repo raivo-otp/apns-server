@@ -109,7 +109,8 @@
             CURLOPT_URL => APNS_URI. '/3/device/' . $deviceToken,
             CURLOPT_PORT => 443,
             CURLOPT_HTTPHEADER => [
-                'apns-push-type: ' . 'background',
+                'apns-push-type: ' . 'alert',
+                'apns-priority: ' . 10,
                 'apns-topic: ' . APNS_BUNDLEID,
                 'Authorization: Bearer ' . $jwt,
                 'User-Agent: Raivo OTP for MacOS APNS server'
