@@ -1,6 +1,6 @@
 # License
 
-> Effective date: September 12, 2019
+> Effective date: August 2, 2023
 
 Raivo ("us", "we", or "our") operates Raivo APNS (the "Service").
 
@@ -8,6 +8,6 @@ The key words "must", "must not", "required", "shall", "shall not", "should", "s
 
 ---
 
-Copyright (c) 2019 Tijme Gommers. All rights reserved.
+Copyright (c) 2023 Mobime. All rights reserved.
 
 The Service is provided 'as-is', without any express or implied warranty. **Modification, duplication or distribution of this Service (in source and binary forms) for any purpose is strictly prohibited.**

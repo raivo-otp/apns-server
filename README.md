@@ -2,13 +2,13 @@
     <img src="https://raw.githubusercontent.com/raivo-otp/ios-application/master/Assets/app-icon.png" width="200"/>
 </p>
 <p align="center">
-    <a href="https://github.com/raivo-otp/apns-server/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=Source&secondText=Licensed" /></a>
-    <a href="https://itunes.apple.com/"><img src="https://raw.finnwea.com/shield/?firstText=Platform&secondText=PHP" /></a>
-    <a href="https://github.com/raivo-otp/apns-server/releases"><img src="https://raw.finnwea.com/vector-shields-v1/?typeKey=SemverVersion&typeValue1=raivo-otp&typeValue2=apns-server&typeValue4=Release&cache=4"></a>
+    <a href="https://github.com/raivo-otp/apns-server/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/Source-Licenced-da0024?style=flat-square" /></a>
+    <a href="https://www.php.net/"><img src="https://img.shields.io/badge/Platform-PHP-da0024?style=flat-square" /></a>
+    <a href="https://github.com/raivo-otp/apns-server/releases"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2Fraivo-otp%2Fapns-server%2Freleases%2Flatest&query=%24.name&style=flat-square&label=Latest&color=da0024"></a>
     <br/>
     <b>An Apple Push Notification Service (APNS) that proxies tokens from Raivo for MacOS to Raivo for iOS</b>
     <br/>
-    <sup>Built by <a href="https://www.linkedin.com/in/tijme/">Tijme Gommers</a> – Buy me a coffee via <a href="https://www.paypal.me/tijmegommers">PayPal</a></sup>
+    <sup>Raivo OTP is built by <a href="https://mobime.org/">Mobime</a></sup>
     <br/>
 </p>
 
@@ -37,4 +37,4 @@ Raivo does not collect personally identifiable information in any way. Please re
 
 ## License
 
-Copyright (c) 2019 Tijme Gommers. All rights reserved. View [LICENSE.md](https://github.com/raivo-otp/apns-server/blob/master/LICENSE.md) for the full license.
+Copyright (c) 2023 Mobime. All rights reserved. View [LICENSE.md](https://github.com/raivo-otp/apns-server/blob/master/LICENSE.md) for the full license.
