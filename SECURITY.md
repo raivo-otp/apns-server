@@ -1,6 +1,6 @@
 # Security Policy
 
-> Effective date: April 16, 2019
+> Effective date: August 2, 2023
 
 Raivo ("us", "we", or "our") operates Raivo APNS (the "Service").
 
